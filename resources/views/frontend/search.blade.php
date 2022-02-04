@@ -40,6 +40,7 @@
                             <th scope="col">E-book</th>
                             <th scope="col">Author</th>
                             <th scope="col">Language</th>
+                            <th scope="col">Start Date</th>
                             <th>Action</th>
 
                         </tr>
@@ -55,8 +56,9 @@
 
                                 <td>{{ $item->Title }}</td>
                                 <td>{{ $item->ebook }}</td>
-                                <td>{{ $item->Author}} Ks</td>
+                                <td>{{ $item->Author}}</td>
                                 <td>{{ $item->Language }}</td>
+                                <td>{{ $item->created_at }}</td>
                                 <td><a href="{{ url('view-item/'.$item->id) }}" class="btn btn-warning view-item">View</a></td>
                             
                             </tr>
