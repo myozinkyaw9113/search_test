@@ -41,6 +41,69 @@
 
     </nav>
 
-    <h3 class="my-3">Index Page</h3>
+    <h3 class="my-3 ms-5">Index Page</h3>
+
+    <div class="card shadow mx-5">
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <table class="table cartTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th scope="col">Title</th>
+                            <th scope="col">E-book</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Language</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    @if(count($materials) > 0) 
+                    <tbody>
+
+                        @foreach($materials as $item)
+
+                            <tr>
+
+                                <td>{{ $item->Title }}</td>
+                                <td>{{ $item->ebook }}</td>
+                                <td>{{ $item->Author}} Ks</td>
+                                <td>{{ $item->Language }}</td>
+                                <td><a href="{{ url('view-item/'.$item->id) }}" class="btn btn-warning view-item">View</a></td>
+                            
+                            </tr>
+
+                        @endforeach 
+
+                    </tbody>
+
+                    @else 
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>No search item ...</td>
+
+                        </tr>
+
+                    </tbody>
+
+                    @endif
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
 
 @endsection

@@ -31,7 +31,8 @@ class HomeController extends Controller
     public function frontIndex() 
     {
         $searchBy = SearchBy::all();
-        return view('frontend.index', compact('searchBy'));
+        $materials = Material::all();
+        return view('frontend.index', compact('materials', 'searchBy'));
     }
 
     public function searchBook(Request $request)
