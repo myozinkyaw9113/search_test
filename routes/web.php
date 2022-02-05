@@ -22,4 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'frontIndex']);
 Route::get('/searchBook', [App\Http\Controllers\HomeController::class, 'searchBook'])->name('frontend.searchBook');
+Route::get('/searchLastWeek', [App\Http\Controllers\HomeController::class, 'searchLastWeek'])->name('frontend.searchLastWeek');
 Route::get('/view-item/{id}', [App\Http\Controllers\HomeController::class, 'viewItem']);

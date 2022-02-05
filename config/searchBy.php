@@ -10,7 +10,6 @@ return [
         "DOIs",
         "Author",
         "Language",
-        "Last Week",
     ]
 ]
 

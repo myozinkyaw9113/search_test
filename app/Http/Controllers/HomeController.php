@@ -43,18 +43,15 @@ class HomeController extends Controller
         if ($search === null) {
             return redirect('/');
         } else {
-            if ($search_by == "Last Week") {
-                $previous_week = strtotime("-1 week +6 days");
-                $start_week = strtotime("last sunday midnight",$previous_week);
-                $end_week = strtotime("next saturday",$start_week);
-                $start_week = date("Y-m-d",$start_week);
-                $end_week = date("Y-m-d",$end_week);
-                $materials = Material::whereBetween('created_at', [$start_week, $end_week])->get();
-            } else {
-                $materials = Material::where($search_by, 'like', '%' .$search.'%')->get();
-            }
+            $materials = Material::where($search_by, 'like', '%' .$search.'%')->get();
             return view('frontend.search', compact('materials', 'search_by'));
         }
+    }
+
+    public function searchLastWeek()
+    {
+        $materials = Material::where('created_at','>=',Carbon::now()->subdays(7))->get();
+        return view('frontend.search', compact('materials'));
     }
 
     public function viewItem($id)

@@ -32,7 +32,11 @@
                         <option value="{{ $value }}">{{ $value }}</option>
                         @endforeach
                     </select>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
+                </form>
+
+                <form action="{{ route('frontend.searchLastWeek') }}" method="GET">
+                    <input class="btn btn-outline-success" type="submit" name="lastWeek" value="Last Week">
                 </form>
 
             </div>
