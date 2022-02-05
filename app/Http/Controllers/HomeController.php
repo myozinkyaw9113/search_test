@@ -48,9 +48,11 @@ class HomeController extends Controller
         }
     }
 
-    public function searchLastWeek()
+    public function searchByDate(Request $request)
     {
-        $materials = Material::where('created_at','>=',Carbon::now()->subdays(7))->get();
+        $from = $request->date_from;
+        $to = $request->date_to;
+        $materials = Material::where('created_at', '>=', $from)->where('created_at', '<=', $to)->get();
         return view('frontend.search', compact('materials'));
     }
 

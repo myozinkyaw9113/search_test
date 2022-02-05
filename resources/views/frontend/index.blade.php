@@ -35,15 +35,54 @@
                     <button class="btn btn-outline-success me-2" type="submit">Search</button>
                 </form>
 
-                <form action="{{ route('frontend.searchLastWeek') }}" method="GET">
-                    <input class="btn btn-outline-success" type="submit" name="lastWeek" value="Last Week">
-                </form>
+                <div>
+                    <button class="btn btn-outline-success" id="searchByDate">By Date</button>
+                </div>
 
             </div>
 
         </div>
 
     </nav>
+    <div class="container-fluid mx-5 py-3" style="display:none;" id="startEndDate">
+
+        <form action="{{ url('searchByDate') }}" method="POST">
+            @csrf
+            <div class="col-md-12">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <label class="form-label">From</label>
+                        <input type="date" class="form-control" name="date_from" value="{{ date('Y-m-d') }}" />
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">To</label>
+                        <input type="date" class="form-control" name="date_to" value="{{ date('Y-m-d') }}" />
+
+                    </div>
+
+                    <div class="col-md-2 mt-4 pt-2">
+
+                        <button type="submit" class="btn btn-outline-success">Search</button>
+
+                    </div>
+
+                    <div class="col-md-2 mt-4 pt-2">
+
+                        <button class="btn btn-warning" id="searchClose">Close</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
 
     <h3 class="my-3 ms-5">Index Page</h3>
 
